@@ -1,7 +1,8 @@
 ---
 - hosts: all
+  become: yes
   tasks:
-  - name: install git,tree and wget
+- name: install git,tree and wget
   apt:
       name: "{{item}}"
       state: present
@@ -11,4 +12,5 @@
        - wget 
 
   when: ansible_os_family == "Debian"
+
 
